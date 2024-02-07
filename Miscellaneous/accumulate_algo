@@ -1,0 +1,2 @@
+ For adding larger values beyond the int range the sum should be initialized with 0ll or a user-defined sum with the suffix ll,  else the sum will be overflown. (here ll refers to long long int)
+Example: accumulate(a,a+n,0ll)

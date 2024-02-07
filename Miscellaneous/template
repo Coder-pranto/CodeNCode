@@ -1,0 +1,47 @@
+template <typename T> T gcd(T a, T b){return (b==0)?a:gcd(b,a%b);}
+template <typename T> T lcm(T a, T b){return a*(b/gcd(a,b));}
+template <typename T> T mod_exp(T b, T p, T m){T x = 1;while(p){if(p&1)x=(x*b)%m;b=(b*b)%m;p=p>>1;}return x;}
+template <typename T> T invFermat(T a, T p){return mod_exp(a, p-2, p);}
+template <typename T> T exp(T b, T p){T x = 1;while(p){if(p&1)x=(x*b);b=(b*b);p=p>>1;}return x;}
+
+template <class T> T exp(T b, T p){T x = 1;while(p){if(p&1)x=(x*b);b=(b*b);p=p>>1;}return x;}
+
+
+//first define
+template <class myType>
+myType function_name (myType a, myType b) {
+ return (a>b?a:b);
+}
+
+// To use above function template we use the following format for the function call:
+function_name <type> (parameters); 
+
+//* example : function template
+
+#include <iostream>
+using namespace std;
+
+template <class T>
+T GetMax (T a, T b) {
+  T result;
+  result = (a>b)? a : b;
+  return (result);
+}
+
+int main () {
+  int i=5, j=6, k, p;
+  long l=10, m=5, n, q;
+
+  k=GetMax<int>(i,j);
+  n=GetMax<long>(l,m);
+
+  cout << k << endl;
+  cout << n << endl;
+
+  p=GetMax(i,j); // because i,j are same type
+  q=GetMax(l,m); // because l,m are same type
+
+  cout << p << endl;
+  cout << q << endl;
+  return 0;
+}
